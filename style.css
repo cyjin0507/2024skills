@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    color: #333;
+    text-decoration: none;
+    list-style: none;
+}
+
+img {
+    object-fit: cover;
+}
+
+#chart {
+    border: 1px solid #aaa;
+    width: 800px;
+    height: 400px;
+}
