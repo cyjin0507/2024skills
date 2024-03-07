@@ -53,7 +53,7 @@ export function chartAnimation() {
 function drawChart() {
     const CHART_THICK = 58;
 
-    // 객체로 넘어오게 되는데 키값이 한국어여서 그럴일은 없겠지만 혹시나 상황을 대비해서 그냥 key,value값 따로 배열로 변환하여 사용
+    // 객체로 넘어오게 되는데 편하게 사용하기 위해서 그냥 key,value값 따로 배열로 변환하여 사용
     // 0번째가 오후 6시, 1번째가 오후 10시가 된다.
     const KEY_DATA = Object.keys(chartData);
     const FIGURE_DATA = Object.values(chartData);
@@ -78,4 +78,5 @@ function drawChart() {
 
 export function setChartData(data) {
     chartData = data;
+    chartAnimation();
 }

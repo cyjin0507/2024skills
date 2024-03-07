@@ -1,16 +1,16 @@
-// import { getJSON } from "../util/Util.js";
-
+import { addEvent, dataSort } from "./Control.js";
 import { setChartData, chartAnimation, drawLine } from "./Draw.js";
 
-async function App() {
-    const VISITORS_DATA = await $.getJSON("./resources/json/visitors.json");
-    
-    // drawLine();
-    setChartData(VISITORS_DATA.data[1].visitors[0].visitor);
-    requestAnimationFrame(chartAnimation)
+function App() {
+    dataSort();
+
+    addEvent();
 }
 
-
+export async function getChartData() {
+    const VISITORS_DATA = await $.getJSON("./resources/json/visitors.json");
+    return VISITORS_DATA;
+}
 
 window.onload = () => {
     App();
