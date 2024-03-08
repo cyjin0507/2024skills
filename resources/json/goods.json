@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "idx": 01,
+      "idx": 1,
       "img": "goods/01.jpg",
       "sale": 12000,
       "title": "바지",
@@ -9,7 +9,7 @@
       "group": "의류"
    },
    {
-    "idx": 02,
+    "idx": 2,
     "img": "goods/02.jpg",
     "sale": 17500,
     "title": "티셔츠",
@@ -17,7 +17,7 @@
     "group": "의류"
    },
    {
-    "idx": 03,
+    "idx": 3,
     "img": "goods/03.jpg",
     "sale": 1500,
     "title": "키링",
@@ -25,7 +25,7 @@
     "group": "악세사리"
    },
    {
-    "idx": 04,
+    "idx": 4,
     "img": "goods/04.jpg",
     "sale": 17511,
     "title": "응원풍선",
@@ -33,7 +33,7 @@
     "group": "응원도구"
    },
    {
-    "idx": 05,
+    "idx": 5,
     "img": "goods/05.jpg",
     "sale": 12456,
     "title": "글러브",
@@ -41,7 +41,7 @@
     "group": "야구용품"
    },
    {
-    "idx": 06,
+    "idx": 6,
     "img": "goods/06.jpg",
     "sale": 17454,
     "title": "헬멧",
@@ -49,7 +49,7 @@
     "group": "야구용품"
    },
    {
-    "idx": 07,
+    "idx": 7,
     "img": "goods/07.jpg",
     "sale": 27000,
     "title": "베트",
@@ -57,7 +57,7 @@
     "group": "야구용품"
    },
    {
-    "idx": 08,
+    "idx": 8,
     "img": "goods/08.jpg",
     "sale": 1484,
     "title": "모자",
@@ -65,7 +65,7 @@
     "group": "의류"
    },
    {
-    "idx": 09,
+    "idx": 9,
     "img": "goods/09.jpg",
     "sale": 54267,
     "title": "세트",
