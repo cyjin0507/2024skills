@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./resources/bootstrap-5.2.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <title>2024 지방기능경기대회 B모듈 풀이</title>
 </head>
+
 <body>
 
     <div class="container">
         <h3 class="mt-5">GOODS 판매 영역</h3>
 
+        <h4 class="mt-5">정렬</h4>
+        <div class="row mt-4">
+            <div class="col">
+                <ul class="nav nav-pills chart-type-btn">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-type="sales_desc">판매량의 내림차순</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-type="sales_asc">판매량의 오름차순</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-type="price">가격</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <select name="" id="" class="form-control">
+                    <option value="">선택</option>
+                </select>
+            </div>
+        </div>
+
+        <h4 class="mt-5">상품리스트</h4>
+        <div class="row mt-4 goods-list" style="gap: 20px;">
+           
+        </div>
 
     </div>
-    
+
     <script type="module" src="./js/goods/App.js"></script>
 </body>
+
 </html>
