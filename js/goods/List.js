@@ -1,19 +1,31 @@
-import { getGoodsData } from "./App.js";
-
 const GOODS_LIST_BOX = $('.goods-list');
 const SORT_BTN = $('.chart-type-btn button');
+const GROUP_SELECT = $('#group-select');
 
 let goods_list = [];
+let group_type = "all";
+
+export async function getGoodsData() {
+    const VISITORS_DATA = await $.getJSON("./resources/json/goods.json");
+    goods_list = VISITORS_DATA.data;
+    goodsDataCategorySort("sales_desc");
+}
 
 function drawList() {
     GOODS_LIST_BOX.html('');
     
-    goods_list.forEach((goods)=> {
+    goods_list.forEach((goods, index)=> {
+        if(group_type != "all") {
+            if(goods.group != group_type) {
+                return;
+            }
+        }
+
         GOODS_LIST_BOX.append(`
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="./resources/images/${goods.img}" alt="Card image cap" height="160">
                 <div class="card-body">
-                    <h5 class="card-title">${goods.title}</h5>
+                    <h5 class="card-title">${goods.title} <span style="color:red">${index <= 2 ? "BEST" : ""}</span></h5>
                     <p class="card-text">
                         가격 : ${goods.price}원 <br />
                         그룹 : ${goods.group} <br />
@@ -27,10 +39,9 @@ function drawList() {
 
 }
 
-export async function goodsDataSort(category) {
-    const GET_GOODS_LIST = await getGoodsData();
+export async function goodsDataCategorySort(category) {
 
-    goods_list = GET_GOODS_LIST.sort(function(a,b) {
+    goods_list = goods_list.sort(function(a,b) {
         if(category == "sales_asc") {
             return a.sale - b.sale;
         } else if(category == "sales_desc") {
@@ -45,8 +56,13 @@ export async function goodsDataSort(category) {
 
 export function sortAddEvent() {
     SORT_BTN.click((e)=> {
-        goodsDataSort(e.target.dataset.type);
+        goodsDataCategorySort(e.target.dataset.type);
         SORT_BTN.removeClass('active');
-        $(e.target).addClass('active')
+        $(e.target).addClass('active');
+    })
+
+    GROUP_SELECT.change((e)=> {
+        group_type = e.target.value;
+        drawList();
     })
 }
