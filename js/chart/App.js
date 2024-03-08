@@ -1,9 +1,7 @@
 import { addEvent, dataSort } from "./Control.js";
-import { setChartData, chartAnimation, drawLine } from "./Draw.js";
 
 function App() {
     dataSort();
-
     addEvent();
 }
 
