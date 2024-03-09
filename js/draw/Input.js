@@ -44,7 +44,7 @@ function drawTextInCanvas(e) {
         }
     )
 
-    drawing();
+    drawingText();
 
     e.target.value = "";
     TEXT_INPUT.fadeOut();
@@ -71,9 +71,8 @@ function onMouseMove({offsetX, offsetY}) {
         || offsetY <= 8 || offsetY >= DRAW_BOX_HEIGHT) return;
 
     const CTX = DRAW_CTX;
-    
     CTX.clearRect(0,0,DRAW_BOX_WIDTH,DRAW_BOX_HEIGHT);
-
+    
     MOVING_TEXT.loc.x = offsetX;
     MOVING_TEXT.loc.y = offsetY;
 
@@ -83,7 +82,7 @@ function onMouseMove({offsetX, offsetY}) {
     MOVING_TEXT.path2d = PATH;
 
     drawImageInCanvas();
-    drawing();
+    drawingText();
 }
 
 function onMouseUp() {
@@ -91,7 +90,7 @@ function onMouseUp() {
     movingTextIndex = -1;
 }
 
-function drawing() {
+export function drawingText() {
     const CTX = DRAW_CTX;
     CTX.font = "18px Arial";
 

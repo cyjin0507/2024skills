@@ -1,6 +1,8 @@
-import { DRAW_CTX } from "./App.js";
+import { DRAW_BOX_HEIGHT, DRAW_BOX_WIDTH, DRAW_CTX } from "./App.js";
+import { drawingText } from "./Input.js";
 
 const UPLOAD_BTN = $('#image-add-btn');
+const RESET_BTN = $('#reset-btn');
 let imageURL = "";
 
 export function upload() {
@@ -8,8 +10,16 @@ export function upload() {
 }
 
 function addEvent() {
+    const CTX = DRAW_CTX;
+    
     UPLOAD_BTN.on('change', getImageFiles);
 
+    RESET_BTN.click(()=> {
+        imageURL = "";
+        CTX.clearRect(0,0,DRAW_BOX_WIDTH,DRAW_BOX_HEIGHT);
+
+        drawingText();
+    })
 }
 
 function getImageFiles(e) {
