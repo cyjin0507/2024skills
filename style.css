@@ -14,3 +14,26 @@ img {
     width: 800px;
     height: 400px;
 }
+
+#modify-zone {
+    width: 800px;
+    height: 600px;
+    position: relative;
+}
+
+#draw-box {
+    border: 1px solid #aaa;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+}
+
+#text-input {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    background-color: #eaeaea;
+    display: none;
+}
