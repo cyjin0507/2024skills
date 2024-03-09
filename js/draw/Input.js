@@ -1,4 +1,5 @@
 import { DRAW_BOX_HEIGHT, DRAW_BOX_WIDTH, DRAW_CTX } from "./App.js";
+import { drawImageInCanvas } from "./Upload.js";
 
 const TEXT_INPUT = $('#text-input');
 const TEXT_BTN = $('#text-btn');
@@ -63,12 +64,16 @@ function onMouseDown({offsetX, offsetY}) {
 
 function onMouseMove({offsetX, offsetY}) {
     if(!isDragging) return;
+
+    const MOVING_TEXT = TEXT_PATH_LIST[movingTextIndex];
+
+    if(offsetX <=0 || offsetX + (MOVING_TEXT.text.length * 18) >= DRAW_BOX_WIDTH
+        || offsetY <= 8 || offsetY >= DRAW_BOX_HEIGHT) return;
+
     const CTX = DRAW_CTX;
     
     CTX.clearRect(0,0,DRAW_BOX_WIDTH,DRAW_BOX_HEIGHT);
 
-    const MOVING_TEXT = TEXT_PATH_LIST[movingTextIndex];
-    
     MOVING_TEXT.loc.x = offsetX;
     MOVING_TEXT.loc.y = offsetY;
 
@@ -77,6 +82,7 @@ function onMouseMove({offsetX, offsetY}) {
 
     MOVING_TEXT.path2d = PATH;
 
+    drawImageInCanvas();
     drawing();
 }
 
