@@ -52,5 +52,7 @@ export function drawImageInCanvas() {
     const IMG = new Image();
     IMG.src = imageURL;
 
-    CTX.drawImage(IMG, 100, 100);
+    IMG.onload = () => {
+        CTX.drawImage(IMG, 0, 0);
+    }
 }
