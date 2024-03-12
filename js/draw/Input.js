@@ -211,7 +211,7 @@ function drawingRepetition() {
 
 // 방향키 인식 함수
 function onKeyDown(e) {
-    if (movingTextIndex == -1 || !isEditing || !isTextInput) return
+    if (movingTextIndex == -1 || !isEditing || isTextInput) return
     e.preventDefault();
 
     const KEY_CODE = e.keyCode;
@@ -224,7 +224,7 @@ function onKeyDown(e) {
 
 // ctrl를 누른 상태임을 인식해야하기 때문에
 function onKeyUp(e) {
-    if (movingTextIndex == -1 || !isTextInput) return
+    if (movingTextIndex == -1 || isTextInput) return
     const KEY_CODE = e.keyCode;
 
     if (KEY_CODE == 17) {
