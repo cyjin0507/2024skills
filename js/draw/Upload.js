@@ -31,6 +31,7 @@ function getImageFiles(e) {
     const uploadFiles = [];
     const files = e.currentTarget.files;
 
+    console.log(files);
 
     // 파일 타입 검사
     [...files].forEach(file => {
@@ -48,12 +49,11 @@ function getImageFiles(e) {
             reader.onload = (e) => {
                 imageURL = e.target.result;
                 drawImageInCanvas();
+                UPLOAD_BTN.value = "";
             };
             reader.readAsDataURL(file);
         }
     });
-
-    UPLOAD_BTN.value = "";
 }
 
 function drawImageInCanvas() {
