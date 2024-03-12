@@ -2,8 +2,10 @@ import { DRAW_BOX_HEIGHT, DRAW_BOX_WIDTH, DRAW_CTX } from "./App.js";
 import { drawingText } from "./Input.js";
 
 const UPLOAD_BTN = $('#image-add-btn');
-const RESET_BTN = $('#reset-btn');
+const DELETE_BTN = $('#delete-btn');
 let imageURL = "";
+
+ const IMG = new Image();
 
 export function upload() {
     addEvent();
@@ -14,10 +16,11 @@ function addEvent() {
     
     UPLOAD_BTN.on('change', getImageFiles);
 
-    RESET_BTN.click(()=> {
+    DELETE_BTN.click(()=> {
         imageURL = "";
         CTX.clearRect(0,0,DRAW_BOX_WIDTH,DRAW_BOX_HEIGHT);
 
+        IMG.src = "";
         drawingText();
     })
 }
@@ -47,12 +50,17 @@ function getImageFiles(e) {
     });
 }
 
-export function drawImageInCanvas() {
+function drawImageInCanvas() {
     const CTX = DRAW_CTX;
-    const IMG = new Image();
+   
     IMG.src = imageURL;
 
     IMG.onload = () => {
         CTX.drawImage(IMG, 0, 0);
     }
+}
+
+export function redrawImage() {
+    const CTX = DRAW_CTX;
+    CTX.drawImage(IMG, 0, 0);
 }
