@@ -63,8 +63,8 @@ function drawImageInCanvas() {
     IMG.src = imageURL;
 
     IMG.onload = () => {
-        console.log(IMG);
         CTX.drawImage(IMG, 0, 0);
+        drawingText();
     }
 }
 

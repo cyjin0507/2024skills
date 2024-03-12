@@ -100,7 +100,7 @@ function onMouseDown({ offsetX, offsetY }) {
             // 어떤 인덱스의 요소를 드래그 중인지 저장
             movingTextIndex = index;
 
-            drawingOutline();
+            drawingRepetition();
         }
     }
 
@@ -197,9 +197,9 @@ function drawingRepetition() {
     } else if (MOVING_TEXT.degree == 180) {
         PATH.rect(MOVING_TEXT.loc.x + 4, MOVING_TEXT.loc.y + 19, MOVING_TEXT.text.length * 18 + 8, 24);
     } else if (MOVING_TEXT.degree == 90) {
-        PATH.rect(MOVING_TEXT.loc.x + 50, MOVING_TEXT.loc.y - 45, 28, MOVING_TEXT.text.length * 18 + 8);
+        PATH.rect(MOVING_TEXT.loc.x + (MOVING_TEXT.text.length * 18 + 8) / 2, MOVING_TEXT.loc.y - (MOVING_TEXT.text.length * 18 + 8) / 2, 28, MOVING_TEXT.text.length * 18 + 8);
     } else if (MOVING_TEXT.degree == 270) {
-        PATH.rect(MOVING_TEXT.loc.x + 20, MOVING_TEXT.loc.y - 30, 28, MOVING_TEXT.text.length * 18 + 8);
+        PATH.rect(MOVING_TEXT.loc.x + (MOVING_TEXT.text.length * 18 + 8) / 2 - 24, MOVING_TEXT.loc.y - (MOVING_TEXT.text.length * 18 + 8) / 2 + 24, 28, MOVING_TEXT.text.length * 18 + 8);
     }
 
     MOVING_TEXT.path2d = PATH;
