@@ -5,7 +5,9 @@ const UPLOAD_BTN = $('#image-add-btn');
 const DELETE_BTN = $('#delete-btn');
 let imageURL = "";
 
- const IMG = new Image();
+const IMG = new Image();
+
+export let imageFileName = "";
 
 export function upload() {
     addEvent();
@@ -39,6 +41,8 @@ function getImageFiles(e) {
 
         // 파일 갯수 검사
         if ([...files].length < 7) {
+            imageFileName = file.name;
+
             uploadFiles.push(file);
             const reader = new FileReader();
             reader.onload = (e) => {
