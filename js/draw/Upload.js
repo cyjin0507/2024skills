@@ -52,14 +52,18 @@ function getImageFiles(e) {
             reader.readAsDataURL(file);
         }
     });
+
+    UPLOAD_BTN.value = "";
 }
 
 function drawImageInCanvas() {
     const CTX = DRAW_CTX;
+    CTX.clearRect(0,0,DRAW_BOX_WIDTH,DRAW_BOX_HEIGHT);
    
     IMG.src = imageURL;
 
     IMG.onload = () => {
+        console.log(IMG);
         CTX.drawImage(IMG, 0, 0);
     }
 }
