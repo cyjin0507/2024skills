@@ -10,8 +10,8 @@ export const DRAW_BOX_HEIGHT = DRAW_BOX.height;
 
 function App() {
     input();
-    upload();
-    download();
+    // upload();
+    // download();
 }
 
 window.onload = () => {

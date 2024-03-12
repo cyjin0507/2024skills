@@ -15,6 +15,8 @@ let movingTextIndex = -1;
 let isEditing = false;
 let isPressingCTRLKey = false;
 
+let isTextInput = false;
+
 // App에서 호출
 export function input() {
     addEvent();
@@ -24,6 +26,7 @@ function addEvent() {
     // 글상자버튼 클릭하면 인풋 생성
     TEXT_BTN.click(() => {
         TEXT_INPUT.fadeIn();
+        isTextInput = true;
     })
 
     // 엔터 인식해서 텍스트를 캔버스에 그려줌
@@ -33,7 +36,7 @@ function addEvent() {
     BOX.on("mousemove", onMouseMove);
     BOX.on("mouseup", onMouseUp);
 
-    // 방향키 이벤트
+    // // 방향키 이벤트
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
 
@@ -81,6 +84,7 @@ function drawTextInCanvas(e) {
 
     e.target.value = "";
     TEXT_INPUT.fadeOut();
+    isTextInput = false;
 }
 
 function onMouseDown({ offsetX, offsetY }) {
@@ -207,8 +211,8 @@ function drawingRepetition() {
 
 // 방향키 인식 함수
 function onKeyDown(e) {
+    if (movingTextIndex == -1 || !isEditing || !isTextInput) return
     e.preventDefault();
-    if (movingTextIndex == -1 || !isEditing) return
 
     const KEY_CODE = e.keyCode;
 
@@ -220,7 +224,7 @@ function onKeyDown(e) {
 
 // ctrl를 누른 상태임을 인식해야하기 때문에
 function onKeyUp(e) {
-    if (movingTextIndex == -1) return
+    if (movingTextIndex == -1 || !isTextInput) return
     const KEY_CODE = e.keyCode;
 
     if (KEY_CODE == 17) {
