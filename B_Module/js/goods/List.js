@@ -14,9 +14,13 @@ export async function getGoodsData() {
 function drawList() {
     GOODS_LIST_BOX.html('');
     
+    let cnt = 0;
+
     goods_list.forEach((goods, index)=> {
         if(group_type != "all") {
             if(goods.group != group_type) {
+                // 수정
+                cnt++;
                 return;
             }
         }
@@ -25,7 +29,7 @@ function drawList() {
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="./resources/images/${goods.img}" alt="Card image cap" height="160">
                 <div class="card-body">
-                    <h5 class="card-title">${goods.title} <span style="color:red">${index <= 2 ? "BEST" : ""}</span></h5>
+                    <h5 class="card-title">${goods.title} <span style="color:red">${index - cnt <= 2 ? "BEST" : ""}</span></h5>
                     <p class="card-text">
                         가격 : ${goods.price}원 <br />
                         그룹 : ${goods.group} <br />
