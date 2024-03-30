@@ -134,9 +134,30 @@ function drawChartTypeTransverse() {
 export function setChartData(data) {
     chartData = data;
     chartAnimation();
+    drawChartTable();
 }
 
 export function setChartType(type) {
     chartType = type;
     chartAnimation();
+}
+
+const TABLE = $('.chart');
+
+// 추가된 부분
+function drawChartTable() {
+    console.log(chartData);
+    TABLE.html('')
+
+    const KEY_DATA = Object.keys(chartData);
+    const VALUE_DATA = Object.values(chartData);
+
+    KEY_DATA.forEach((data, index)=> {
+        TABLE.append(`
+            <tr>
+                <td>${data}</td>
+                <td>${VALUE_DATA[index]}</td>
+            </tr>
+        `)
+    })
 }

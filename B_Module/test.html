@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <script>
+
+        function load()
+        {
+            
+            $.get("/test.json", (data)=>{
+                console.log(data);
+                let json = data.replace(/0([1-9]+)/g, "$1");
+                console.log(json);            
+            }, "text")
+            .error( (err, code, msg)=>{
+                console.log(msg);
+            });
+        }
+
+        load();
+        
+    </script>
+</body>
+</html>
